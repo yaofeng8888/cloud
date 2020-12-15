@@ -1,0 +1,11 @@
+server:
+  port: 8000
+spring:
+  application:
+    name: consumer-order-service
+eureka:
+  client:
+    register-with-eureka: true #注册服务
+    fetch-registry: true  #检索服务
+    service-url:
+      defaultZone: http://localhost:7000/eureka

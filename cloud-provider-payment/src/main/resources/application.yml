@@ -1,0 +1,25 @@
+server:
+  port: 8001
+
+spring:
+  application:
+    name: cloud-payment-service
+  datasource:
+    #当前数据源操作类型
+    type: com.alibaba.druid.pool.DruidDataSource
+    #mysql驱动包
+    driver-class-name: org.gjt.mm.mysql.Driver
+    url: jdbc:mysql://localhost:3306/cloud?useUnicode=true&characterEncoding=utf8&useSSL=false
+    username: yaofeng
+    password: yaofeng
+
+mybatis:
+  mapperLocations: classpath:mapper/*.xml
+    #所有entity别名类所在包
+  type-aliases-package: com.george.springcloud.model
+eureka:
+  client:
+    register-with-eureka: true #注册服务
+    fetch-registry: true  #检索服务
+    service-url:
+      defaultZone: http://localhost:7000/eureka
