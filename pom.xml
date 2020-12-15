@@ -14,6 +14,7 @@
     <module>cloud-consumer-order</module>
       <module>cloud-api-common</module>
       <module>cloud-eureka-server</module>
+      <module>cloud-eureka-server-cluster01</module>
   </modules>
 
 
