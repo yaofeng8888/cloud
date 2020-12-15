@@ -1,0 +1,7 @@
+服务注册的时候，多个注册中心用逗号隔开
+eureka:
+  client:
+    register-with-eureka: true #注册服务
+    fetch-registry: true  #检索服务
+    service-url:
+      defaultZone: http://localhost:7000/eureka,http://localhost:7001/eureka,http://localhost:7002/eureka
