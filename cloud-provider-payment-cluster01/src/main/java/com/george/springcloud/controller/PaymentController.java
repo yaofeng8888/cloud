@@ -24,7 +24,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Slf4j
 public class PaymentController {
 
-
 	@Value("${server.port}")
 	private String serverPort;
 
