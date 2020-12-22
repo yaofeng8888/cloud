@@ -1,14 +1,21 @@
 package com.george.springcloud.controller;
 
+import cn.hutool.json.JSONObject;
 import com.george.springcloud.model.ApiResult;
 import com.george.springcloud.model.Payment;
 import com.george.springcloud.service.PaymentService;
 
 import lombok.extern.slf4j.Slf4j;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.client.ServiceInstance;
+import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -28,7 +35,11 @@ public class PaymentController {
 	@Value("${server.port}")
 	private String serverPort;
 
+	@Autowired
 	private final PaymentService service;
+
+	@Autowired
+	private DiscoveryClient discoveryClient;
 
 	public PaymentController(PaymentService service) {
 		this.service = service;
@@ -57,5 +68,24 @@ public class PaymentController {
 		}else {
 			return new ApiResult(500,"没有对应记录，ID为:"+id,null);
 		}
+	}
+
+	@GetMapping("/payment/discovery")
+	@ResponseBody
+	public Object discovery(){
+		Map<String,Object> map = new HashMap<>();
+		List<String> services = discoveryClient.getServices();
+		List<ServiceInstance> instances = discoveryClient.getInstances("CLOUD-PAYMENT-SERVICE");
+		map.put("service",services);
+		for (ServiceInstance in:instances) {
+			JSONObject jsonObject = new JSONObject();
+			jsonObject.put("serviceId",in.getServiceId());
+			jsonObject.put("host",in.getHost());
+			jsonObject.put("port",in.getPort());
+			jsonObject.put("RUI",in.getUri());
+			map.put(in.getInstanceId(),jsonObject);
+			System.out.println(in.getInstanceId()+"----"+in.getHost()+"----"+in.getPort()+"----"+in.getUri());
+		}
+		return map;
 	}
 }
