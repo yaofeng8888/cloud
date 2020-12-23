@@ -2,7 +2,7 @@ server:
   port: 8003
 spring:
   application:
-    name: provider-payment-zookeeper
+    name: cloud-payment-zookeeper-service
   cloud:
     zookeeper:
       connect-string: 192.168.111.113:2181  #多个地址用逗号隔开

@@ -1,4 +1,4 @@
-package george.springcloud.controller;
+package com.george.springcloud.controller;
 
 import com.george.springcloud.model.ApiResult;
 import com.george.springcloud.model.Payment;
@@ -16,8 +16,9 @@ import org.springframework.web.client.RestTemplate;
  * @author yaofeng 2020-12-14 17:42
  */
 @RestController
+
 public class OrderController {
-	public static final String PAYMENT_URL = "http://CLOUD-PAYMENT-ZOOKEEPER-SERVICE";
+	public static final String PAYMENT_URL = "http://CLOUD-PAYMENT-CONSUL-SERVICE";
 
 	@Resource
 	private RestTemplate restTemplate;
