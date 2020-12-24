@@ -6,6 +6,7 @@ import lombok.extern.slf4j.Slf4j;
 
 import javax.annotation.Resource;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
@@ -27,7 +28,18 @@ public class OrderController {
 	@GetMapping("/getOne/{id}")
 	public ApiResult<Payment> getPayment(@PathVariable("id") Long id) {
 		System.out.println("---------订单系统-----------");
-		return restTemplate.getForObject(PAYMENT_URL + "/getOne/" + id, ApiResult.class);
+		ApiResult forObject = restTemplate.getForObject(PAYMENT_URL + "/getOne/" + id, ApiResult.class);
+		return forObject;
 	}
 
+	@GetMapping("/getOne/getEntity/{id}")
+	public ApiResult<Payment> getEntityPayment(@PathVariable("id") Long id) {
+		System.out.println("---------订单系统-----------");
+		ResponseEntity<ApiResult> forEntity = restTemplate.getForEntity(PAYMENT_URL + "/getOne/" + id, ApiResult.class);
+		if (forEntity.getStatusCode().is2xxSuccessful()){
+			return forEntity.getBody();
+		}else {
+			return null;
+		}
+	}
 }
