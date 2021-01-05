@@ -57,4 +57,9 @@ public class PaymentController {
 			return new ApiResult(500,"没有对应记录，ID为:"+id,null);
 		}
 	}
+
+	@GetMapping("/payment/Lb")
+	public String getPaymentLb(){
+		return serverPort;
+	}
 }

@@ -88,4 +88,9 @@ public class PaymentController {
 		}
 		return map;
 	}
+
+	@GetMapping("/payment/Lb")
+	public String getPaymentLb(){
+		return serverPort;
+	}
 }
