@@ -24,8 +24,14 @@ public class OrderController {
 	@Autowired
 	private OrderService orderService;
 
-	@RequestMapping("getOne/{id}")
+	@RequestMapping("/getOne/{id}")
 	public ApiResult<Payment> getOne(@PathVariable("id") Long id){
 		return orderService.getOne(id);
+	}
+
+	@RequestMapping("/payment/timeout")
+	public String timeout(){
+		String timeout = orderService.timeout();
+		return timeout;
 	}
 }

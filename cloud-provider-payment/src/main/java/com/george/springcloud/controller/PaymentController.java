@@ -11,6 +11,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+import java.util.concurrent.TimeUnit;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -91,6 +92,17 @@ public class PaymentController {
 
 	@GetMapping("/payment/Lb")
 	public String getPaymentLb(){
+		return serverPort;
+	}
+
+	@GetMapping("/payment/timeout")
+	@ResponseBody
+	public String timeout() {
+		try {
+			TimeUnit.SECONDS.sleep(3);
+		}catch (Exception e){
+			e.printStackTrace();
+		}
 		return serverPort;
 	}
 }
