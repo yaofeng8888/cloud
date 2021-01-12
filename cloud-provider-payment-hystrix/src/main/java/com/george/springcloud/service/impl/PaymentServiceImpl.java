@@ -32,9 +32,9 @@ public class PaymentServiceImpl implements PaymentService {
 	})
 	public String timeOut(Integer id){
 		long begin = System.currentTimeMillis();
-		int i = 10/0;
+//		int i = 10/0;
 		try {
-			TimeUnit.SECONDS.sleep(5);
+			TimeUnit.SECONDS.sleep(3);
 		}catch (Exception e){
 			e.printStackTrace();
 		}

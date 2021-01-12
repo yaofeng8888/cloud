@@ -1,5 +1,7 @@
 package com.george.springcloud.feign;
 
+import com.george.springcloud.feign.impl.PaymentHystrixServiceImpl;
+
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,7 +13,7 @@ import org.springframework.web.bind.annotation.PathVariable;
  * @author yaofeng 2021/1/5 5:29 下午
  */
 @Component
-@FeignClient(name = "CLOUD-PAYMENT-HYSTRIX-SERVICE")
+@FeignClient(name = "CLOUD-PAYMENT-HYSTRIX-SERVICE",fallback = PaymentHystrixServiceImpl.class)
 public interface PaymentHystrixService {
 
 	@GetMapping("/paymentOK/{id}")
