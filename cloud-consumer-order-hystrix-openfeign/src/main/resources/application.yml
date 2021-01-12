@@ -18,3 +18,6 @@ logging:
   level:
     #feign 以什么级别监控那个服务接口
     com.george.springcloud.feign.OrderService: debug
+feign:
+  hystrix:
+    enabled: true #开启feign降级。

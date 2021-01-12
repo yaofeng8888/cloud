@@ -32,6 +32,11 @@ public class PaymentHystrixController {
 		return orderService.getPayment_OK(id);
 	}
 
+	@RequestMapping("/getFeign/{id}")
+	public String getFeign(@PathVariable("id") Long id){
+		return orderService.getTimeout(id);
+	}
+
 	@RequestMapping("/payment/timeout/{id}")
 	@HystrixCommand(fallbackMethod = "timeOutFallback",commandProperties = {
 			@HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "1500")
