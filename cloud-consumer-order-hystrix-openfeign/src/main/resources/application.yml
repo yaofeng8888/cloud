@@ -1,0 +1,20 @@
+server:
+  port: 8080
+eureka:
+  client:
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka,http://eureka7002.com:7002/eureka  #集群配置 注册到多个注册中心
+spring:
+  application:
+    name: cloud-consumer-openfeign
+#设置feign的超时时间 feign支持ribbon
+ribbon:
+  #建立链接使用的时间，适用于网络正常的情况下，两端建立链接的时间
+  ReadTimeout: 5000
+  #建立连接后服务器读取可用资源的所用时间
+  ConnectTimeout: 5000
+logging:
+  level:
+    #feign 以什么级别监控那个服务接口
+    com.george.springcloud.feign.OrderService: debug

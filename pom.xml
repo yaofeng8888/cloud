@@ -21,6 +21,8 @@
       <module>cloud-provider-payment-consul</module>
       <module>cloud-consumer-order-consul</module>
       <module>cloud-consumer-order-openfegin</module>
+      <module>cloud-provider-payment-hystrix</module>
+      <module>cloud-consumer-order-hystrix-openfeign</module>
   </modules>
 
 
