@@ -32,4 +32,9 @@ public class PaymentController {
 	public String timeOut(@PathVariable("id") Integer id){
 		return service.timeOut(id);
 	}
+
+	@GetMapping("/paymentBreaker/{id}")
+	public String  breaker(@PathVariable("id") Integer id){
+		return service.paymentBreak(id);
+	}
 }
