@@ -3,6 +3,7 @@ package com.george.springcloud;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.hystrix.dashboard.EnableHystrixDashboard;
+import org.springframework.cloud.netflix.turbine.EnableTurbine;
 
 /**
  * CloudHystrixDashboard.
@@ -11,6 +12,7 @@ import org.springframework.cloud.netflix.hystrix.dashboard.EnableHystrixDashboar
  */
 @SpringBootApplication
 @EnableHystrixDashboard
+@EnableTurbine
 public class CloudHystrixDashboard {
 
 	public static void main(String[] arg){

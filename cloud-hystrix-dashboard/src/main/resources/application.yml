@@ -1,2 +1,20 @@
 server:
   port: 9000
+spring:
+  application:
+    # 本服务注册到注册到服务器的名称, 这个名称就是后面调用服务时的服务标识符
+    name: cloud-dashboard-hystrix
+eureka:
+  client:
+    serviceUrl:
+      # 服务器注册/获取服务器的zone
+      defaultZone: http://eureka7001.com:7001/eureka,http://eureka7002.com:7002/eureka
+  instance:
+    prefer-ip-address: true
+turbine:
+  # 配置Eureka中的serviceId列表，表明监控哪些服务,多个服务用',"分隔
+  appConfig: CLOUD-PAYMENT-HYSTRIX-SERVICE,CLOUD-PAYMENT-HYSTRIX-SERVICE2
+  aggregator:
+    # 指定聚合哪些集群，多个使用”,”分割，默认为default。可使用http://.../turbine.stream?cluster={clusterConfig之一}访问
+    clusterConfig: default
+  clusterNameExpression: new String("default")
