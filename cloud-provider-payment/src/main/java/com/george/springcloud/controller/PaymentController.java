@@ -91,6 +91,7 @@ public class PaymentController {
 	}
 
 	@GetMapping("/payment/Lb")
+	@ResponseBody
 	public String getPaymentLb(){
 		return serverPort;
 	}

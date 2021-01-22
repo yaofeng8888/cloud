@@ -24,6 +24,7 @@
       <module>cloud-provider-payment-hystrix</module>
       <module>cloud-consumer-order-hystrix-openfeign</module>
       <module>cloud-hystrix-dashboard</module>
+      <module>cloud-gateway</module>
   </modules>
 
 
