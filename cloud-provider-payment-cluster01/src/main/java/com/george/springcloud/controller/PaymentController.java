@@ -14,13 +14,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
 /**
  * PaymentController.
  *
  * @author yaofeng 2020-12-14 15:35
  */
-@Controller
+@RestController
 @Slf4j
 public class PaymentController {
 
@@ -34,7 +35,6 @@ public class PaymentController {
 	}
 
 	@PostMapping("save")
-	@ResponseBody
 	public ApiResult save(Payment payment){
 		int save = service.save(payment);
 		if (save>0){
@@ -47,7 +47,6 @@ public class PaymentController {
 
 	}
 	@GetMapping("getOne/{id}")
-	@ResponseBody
 	public ApiResult<Payment> findOne(@PathVariable("id") Long id){
 		Payment payment = service.getOne(id);
 		if (payment!=null){
