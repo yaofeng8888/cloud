@@ -1,0 +1,10 @@
+# Created by .ignore support plugin (hsz.mobi)
+### VSC ###
+.vscode
+
+/**/rebel.xml
+/**/.rebel.xml.bak
+/**/.flattened-pom.xml
+application.pid
+/**/target/**
+.idea/**
