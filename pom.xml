@@ -26,6 +26,8 @@
       <module>cloud-hystrix-dashboard</module>
       <module>cloud-gateway</module>
       <module>cloud-config-center</module>
+      <module>cloud-config-client</module>
+    <module>cloud-config-client</module>
   </modules>
 
 
