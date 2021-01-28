@@ -15,3 +15,10 @@ eureka:
     fetch-registry: true  #检索服务
     service-url:
       defaultZone: http://eureka7001.com:7001/eureka,http://eureka7002.com:7002/eureka   #集群配置 注册到多个注册中心
+
+#暴露监控端口
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
