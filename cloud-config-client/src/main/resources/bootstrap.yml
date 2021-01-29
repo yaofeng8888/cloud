@@ -9,6 +9,11 @@ spring:
       name: application #配置文件名称
       profile: dev #读取文件后缀  master分支上的application.yml文件会被读取到http://localhost:3344/master/application-dev.yml
       uri: http://localhost:3344  #配置中心地址
+  rabbitmq:
+    port: 5672
+    host: 127.0.0.1
+    username: root
+    password: 123456
 eureka:
   client:
     register-with-eureka: true #注册服务

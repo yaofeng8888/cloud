@@ -13,9 +13,20 @@ spring:
             - spring-cloud-config
           #读取分支
       label: master
+  rabbitmq:
+    port: 5672
+    host: 127.0.0.1
+    username: root
+    password: 123456
 eureka:
   client:
     register-with-eureka: true #注册服务
     fetch-registry: true  #检索服务
     service-url:
       defaultZone: http://eureka7001.com:7001/eureka,http://eureka7002.com:7002/eureka   #集群配置 注册到多个注册中心
+#rabbitmq相关配置，暴露监控端口
+management:
+  endpoints:
+    web:
+      exposure:
+        include: 'bus-refresh'
