@@ -8,6 +8,11 @@ eureka:
 spring:
   application:
     name: cloud-consumer-openfeign
+    zipkin:
+      base-url: http://localhost:9411
+    sleuth:
+      sampler:
+        probability: 1 #链路采样介于0和1之间， 1表示全部采样
 #设置feign的超时时间 feign支持ribbon
 ribbon:
   #建立链接使用的时间，适用于网络正常的情况下，两端建立链接的时间
