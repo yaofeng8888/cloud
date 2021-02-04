@@ -31,6 +31,7 @@
       <module>cloud-stream-provider</module>
     <module>cloud-stream-consumer</module>
     <module>cloud-stream-consumer-cluster</module>
+    <module>cloud-alibaba-provider</module>
   </modules>
 
 
@@ -103,6 +104,13 @@
         <groupId>org.projectlombok</groupId>
         <artifactId>lombok</artifactId>
         <version>${lombok.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.alibaba.cloud</groupId>
+        <artifactId>spring-cloud-alibaba-dependencies</artifactId>
+        <version>2.1.0.RELEASE</version>
+        <type>pom</type>
+        <scope>import</scope>
       </dependency>
     </dependencies>
   </dependencyManagement>
