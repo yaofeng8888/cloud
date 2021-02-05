@@ -32,6 +32,7 @@
     <module>cloud-stream-consumer</module>
     <module>cloud-stream-consumer-cluster</module>
     <module>cloud-alibaba-provider</module>
+    <module>cloud-alibaba-consumer</module>
   </modules>
 
 

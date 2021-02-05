@@ -1,6 +1,7 @@
 package com.george.springcloud.controller;
 
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -16,8 +17,8 @@ public class CloudAlibabaProviderController {
 	private String serverPort;
 
 
-	@RequestMapping("getPort")
-	public String getPort(){
-		return serverPort;
+	@RequestMapping("/provider/{id}")
+	public String getPort(@PathVariable("id")Integer id){
+		return "this is provider,your id is "+id+"this.provider serverPort is "+serverPort;
 	}
 }
