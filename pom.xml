@@ -33,6 +33,7 @@
     <module>cloud-stream-consumer-cluster</module>
     <module>cloud-alibaba-provider</module>
     <module>cloud-alibaba-consumer</module>
+    <module>cloud-alibaba-config-nacos-client</module>
   </modules>
 
 

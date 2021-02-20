@@ -1,0 +1,14 @@
+server:
+  port: 3377
+spring:
+  application:
+    name: cloud-alibaba-config-client
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+      config:
+        server-addr: localhost:8848
+        file-extension: yml
+        group: DEFAULT_GROUP
+        #namespace: e4b7a0b3-0f07-474d-9bf1-3d9521986b19
