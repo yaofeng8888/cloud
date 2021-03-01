@@ -1,6 +1,9 @@
 package com.george.springcloud.controller;
 
+import com.alibaba.csp.sentinel.util.TimeUtil;
 import lombok.extern.slf4j.Slf4j;
+
+import java.util.concurrent.TimeUnit;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -30,5 +33,24 @@ public class CloudAlibabaSentinelController {
 	public String getPortA(){
 		log.info(Thread.currentThread().getName()+"....sentinelA");
 		return "this is sentinel serverA "+serverPort;
+	}
+
+
+	@RequestMapping("sentinelB")
+	public String getPortB(){
+		try {
+			TimeUnit.SECONDS.sleep(1);
+		}catch (InterruptedException e){
+			e.printStackTrace();
+		}
+		log.info(Thread.currentThread().getName()+"....sentinelB");
+		return "this is sentinel serverB "+serverPort;
+	}
+
+	@RequestMapping("sentinelC")
+	public String getPortC(){
+		int c =10/0;
+		log.info(Thread.currentThread().getName()+"....sentinelB");
+		return "this is sentinel serverB "+serverPort;
 	}
 }
