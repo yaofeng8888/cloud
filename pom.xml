@@ -34,6 +34,7 @@
     <module>cloud-alibaba-provider</module>
     <module>cloud-alibaba-consumer</module>
     <module>cloud-alibaba-config-nacos-client</module>
+      <module>cloud-alibaba-sentinel-service</module>
   </modules>
 
 
