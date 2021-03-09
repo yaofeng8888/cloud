@@ -1,5 +1,7 @@
 package com.george.springcloud.controller;
 
+import com.alibaba.csp.sentinel.annotation.SentinelResource;
+import com.alibaba.csp.sentinel.slots.block.BlockException;
 import com.alibaba.csp.sentinel.util.TimeUtil;
 import lombok.extern.slf4j.Slf4j;
 
@@ -8,6 +10,7 @@ import java.util.concurrent.TimeUnit;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -52,5 +55,17 @@ public class CloudAlibabaSentinelController {
 		int c =10/0;
 		log.info(Thread.currentThread().getName()+"....sentinelB");
 		return "this is sentinel serverB "+serverPort;
+	}
+
+	@RequestMapping("/hotKey")
+	@SentinelResource(value = "hotKey",blockHandler = "deal_hotKey")
+	public String getHotKey(@RequestParam(value = "p1",required = false)String p1,
+							@RequestParam(value = "p2",required = false)String p2){
+
+		return "this is sentinel hotKye "+serverPort;
+	}
+
+	public String deal_hotKey(String p1, String p2, BlockException blockException){
+		return  "deal_hotKey";
 	}
 }
