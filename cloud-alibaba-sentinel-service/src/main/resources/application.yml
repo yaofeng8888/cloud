@@ -12,6 +12,15 @@ spring:
         dashboard: localhost:8080
         #默认是8719  如果端口被占用 就会自动加1扫描，直到找到没有被占用的端口
         port: 8719
+        # 添加nacos配置，该配置已经在nacos上配置好
+      datasource:
+        ds1:
+          nacos:
+            server-addr: 127.0.0.1:8848
+            dataId: cloud-alibaba-sentinel-service
+            groupId: DEFAULT_GROUP
+            data-type: json
+            rule-type: flow
 management:
   endpoints:
     web:
